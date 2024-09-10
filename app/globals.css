@@ -74,5 +74,9 @@
 }
 
 .auth {
-    @apply h-screen flex flex-col items-center justify-center text-center;
+    @apply min-h-screen w-full flex flex-col items-center justify-center text-center;
 }
+
+.root {
+    @apply min-h-screen w-full flex flex-col;
+  }
