@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react"
 import { useTheme } from "next-themes"
 
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
 import { MoonIcon, SunIcon } from "lucide-react"
 
-export const ThemeToggle = () => {
+const ThemeToggle = () => {
     const { setTheme, resolvedTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
 
@@ -34,3 +34,5 @@ export const ThemeToggle = () => {
         </Button>
     )
 }
+
+export default ThemeToggle;

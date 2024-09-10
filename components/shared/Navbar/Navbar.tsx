@@ -1,15 +1,13 @@
 import Link from "next/link"
 
-import { buttonVariants } from "../ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import ThemeToggle from "../ThemeToggle"
-
-import MaxWidthWrapper from "../MaxWidthWrapper"
+import ThemeToggle from "@/app/theme-toggle"
 
 export const Navbar = () => {
     return (
         <nav className='fixed h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-background/75 backdrop-blur-lg transition-all'>
-            <MaxWidthWrapper>
+            <div className="max-w-wrapper">
                 <div className='flex h-14 items-center justify-between border-b border-zinc-200'>
                     <Link
                         href='/'
@@ -30,7 +28,7 @@ export const Navbar = () => {
                             </Link>
 
                             <Link
-                                href="/sign-in"
+                                href="/sign-up"
                                 className={buttonVariants({
                                     size: "sm"
                                 })}
@@ -42,7 +40,7 @@ export const Navbar = () => {
                         </>
                     </div>
                 </div>
-            </MaxWidthWrapper>
+            </div>
         </nav>
     )
 }
