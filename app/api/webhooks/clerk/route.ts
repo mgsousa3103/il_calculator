@@ -1,9 +1,9 @@
-import { clerkClient, WebhookEvent } from "@clerk/nextjs/server"
+import { WebhookEvent, clerkClient } from "@clerk/nextjs/server"
 import { headers } from "next/headers"
+import { NextResponse } from "next/server"
 import { Webhook } from "svix"
 
 import { createUser } from "@/app/_actions/user.actions"
-import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
     const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET
@@ -61,8 +61,6 @@ export async function POST(req: Request) {
             photo: image_url,
         }
 
-        console.log("User:", user)
-
         const newUser = await createUser(user)
 
         if (newUser) {
@@ -79,5 +77,5 @@ export async function POST(req: Request) {
     console.log(`Webhook with an ID of ${id} and type of ${eventType}`)
     console.log(`Webhook body:`, body)
 
-    return new Response("Success", { status: 200 })
+    return new Response("", { status: 200 })
 }

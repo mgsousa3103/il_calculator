@@ -1,6 +1,6 @@
 import { connectToDatabase } from "@/adapters/mongoose/mongoose";
 import User, { IUser } from "@/database/models/user/user.model";
-import { handleError, parseStringfy } from "@/lib/utils";
+import { handleError } from "@/lib/utils";
 
 // Create a new user
 export const createUser = async (user: IUser) => {
@@ -9,7 +9,9 @@ export const createUser = async (user: IUser) => {
 
         const newUser = await User.create(user)
 
-        return parseStringfy(newUser)
+        console.log("New user created: ", user, newUser)
+
+        return JSON.parse(JSON.stringify(newUser))
     } catch (error) {
         handleError(error)
     }
