@@ -1,9 +1,9 @@
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import ThemeToggle from "@/app/theme-toggle"
 import { currentUser } from "@clerk/nextjs/server"
 import { UserButton } from "@clerk/nextjs"
+import ThemeToggle from "../ThemeToggle"
 
 export const Navbar = async () => {
     const user = await currentUser()
