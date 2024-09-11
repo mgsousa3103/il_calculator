@@ -1,19 +1,18 @@
 import Link from "next/link"
 import { buttonVariants } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import { currentUser } from "@clerk/nextjs/server"
-import { UserButton } from "@clerk/nextjs"
 import ThemeToggle from "../ThemeToggle"
 
 export const Navbar = async () => {
-    const user = await currentUser()
+    const user = null
 
     return (
         <nav className='fixed h-14 inset-x-0 top-0 z-30 w-full border-b border-gray-200 bg-background/75 backdrop-blur-lg transition-all'>
             <div className="max-w-wrapper">
                 <div className='flex h-14 items-center justify-between border-b border-zinc-200'>
                     <Link
-                        href={`${user === null ? "/" : "/dashboard"}`}
+                        // href={`${user === null ? "/" : "/dashboard"}`}
+                        href={"/"}
                         className='flex z-40 font-semibold'>
                         <span>quill.</span>
                     </Link>
@@ -62,8 +61,6 @@ export const Navbar = async () => {
                                     >
                                         Dashboard
                                     </Link>
-
-                                    <UserButton />
                                 </>
                             )}
 
